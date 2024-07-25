@@ -6,6 +6,7 @@ This API documentation outlines the routes available for interacting with the we
 ## Task API
 
 ### Get All Tasks
+###GET /tasks
 - Description: Retrieve all tasks
 - Authentication: Required
 - Query Parameters:
