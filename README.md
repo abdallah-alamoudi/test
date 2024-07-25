@@ -2,6 +2,72 @@
 
 This API documentation outlines the routes available for interacting with the website through API requests.# test
 
+## User API
+
+### Register User
+POST /users
+- Description: Register a new user
+- Request Body:
+  - `username`: User's username
+  - `email`: User's email
+  - `password`: User's password
+- Response: New user object and authentication token
+
+### User Login
+POST /users/login
+- Description: User login
+- Request Body:
+  - `email`: User's email
+  - `password`: User's password
+- Response: User object and authentication token
+
+### User Logout
+POST /users/logout
+- Description: Log out the current user
+- Authentication: Required
+- Response: Success message
+
+### User Logout All Devices
+POST /users/logout/all
+- Description: Log out the current user from all devices
+- Authentication: Required
+- Response: Success message
+### Get Current User
+GET /users/me
+- Description: Retrieve current user profile
+- Authentication: Required
+- Response: Current user object
+
+### Update User
+PATCH /users/me
+- Description: Update current user profile
+- Authentication: Required
+- Request Body: Updated user fields
+- Response: Updated user object
+
+### Delete User
+DELETE /users/me
+- Description: Delete current user profile
+- Authentication: Required
+- Response: Deleted user object
+
+### Upload User Avatar
+POST /users/upload
+- Description: Upload user avatar
+- Authentication: Required
+- Form Data: Avatar file
+- Response: Base64 encoded avatar
+
+### Get User Avatar
+GET /users/:id/avatar
+- Description: Get user avatar by user ID
+- Response: User avatar image
+
+### Delete User Avatar
+DELETE /users/avatar
+- Description: Delete user's avatar
+- Authentication: Required
+- Response: Success message
 
 ## Task API
 
@@ -18,12 +84,13 @@ GET /tasks
   - `tasks`: Array of tasks
 
 ### Get Task by ID
-
+GET /tasks/:id
 - Description: Retrieve a task by ID
 - Authentication: Required
 - Response: Task object
 
 ### Create Task
+POST /tasks
 - Description: Create a new task
 - Authentication: Required
 - Request Body:
@@ -32,65 +99,16 @@ GET /tasks
 - Response: Created task object
 
 ### Update Task
+PATCH /tasks/:id
 - Description: Update a task by ID
 - Authentication: Required
 - Request Body: Updated task fields
 - Response: Updated task object
 
 ### Delete Task
+DELETE /tasks/:id
 - Description: Delete a task by ID
 - Authentication: Required
 - Response: Deleted task object
 
-## User API
 
-### Get Current User
-- Description: Retrieve current user profile
-- Authentication: Required
-- Response: Current user object
-
-### Update User
-- Description: Update current user profile
-- Authentication: Required
-- Request Body: Updated user fields
-- Response: Updated user object
-
-### Delete User
-- Description: Delete current user profile
-- Authentication: Required
-- Response: Deleted user object
-
-### Register User
-- Description: Register a new user
-- Request Body:
-  - `username`: User's username
-  - `email`: User's email
-  - `password`: User's password
-- Response: New user object and authentication token
-
-### User Login
-- Description: User login
-- Request Body:
-  - `email`: User's email
-  - `password`: User's password
-- Response: User object and authentication token
-
-### User Logout
-- Description: Log out the current user from all devices
-- Authentication: Required
-- Response: Success message
-
-### Upload User Avatar
-- Description: Upload user avatar
-- Authentication: Required
-- Form Data: Avatar file
-- Response: Base64 encoded avatar
-
-### Get User Avatar
-- Description: Get user avatar by user ID
-- Response: User avatar image
-
-### Delete User Avatar
-- Description: Delete user's avatar
-- Authentication: Required
-- Response: Success message
