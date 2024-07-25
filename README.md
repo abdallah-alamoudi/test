@@ -18,6 +18,7 @@ GET /tasks
   - `tasks`: Array of tasks
 
 ### Get Task by ID
+
 - Description: Retrieve a task by ID
 - Authentication: Required
 - Response: Task object
